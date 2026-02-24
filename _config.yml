@@ -2,12 +2,12 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Rife Shang # the website title (if blank, full name will be used instead)
+title: Ruifeng Shang # the website title (if blank, full name will be used instead)
 first_name: Ruifeng
 middle_name: 
 last_name: Shang
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Please feel free to reach out via email for research discussions or collaborations.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Incoming M.S. in Statistics at the University of Chicago | B.S. at Shanghai Jiao Tong University.
 footer_text: >
@@ -279,8 +279,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Shang]
+  first_name: [Ruifeng, R.]
 
   style: apa
   locale: en
