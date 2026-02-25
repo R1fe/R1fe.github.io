@@ -389,11 +389,6 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
-            },},{id: "news-announcement-3",
-          title: 'Announcement_3',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_3/";
             },},{id: "news-received-the-ms-offer-from-uchicago-statistics",
           title: '🎉 Received the MS offer from UChicago Statistics!',
           description: "",
