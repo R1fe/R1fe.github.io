@@ -389,10 +389,12 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+            },},{id: "news-announcement-3",
+          title: 'Announcement_3',
           description: "",
-          section: "News",},{id: "news-received-the-ms-offer-from-uchicago-statistics",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_3/";
+            },},{id: "news-received-the-ms-offer-from-uchicago-statistics",
           title: '🎉 Received the MS offer from UChicago Statistics!',
           description: "",
           section: "News",},{id: "projects-project-1",
