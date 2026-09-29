@@ -1,0 +1,5 @@
+# Assign a consistent color to each research topic.
+# Available colors: purple, green, amber, blue, slate.
+# Use comma-separated names in each paper's BibTeX topics field.
+Generative Model: purple
+Stochastic Systems: green

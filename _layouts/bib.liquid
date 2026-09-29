@@ -1,29 +1,38 @@
 ---
 ---
-<div class="row">
+{% assign publication_abbr = entry.abbr %}
+{% if publication_abbr == blank and entry.arxiv %}
+  {% assign publication_abbr = 'arXiv' %}
+{% endif %}
+<div class="row publication-entry">
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
-      {%- if entry.abbr -%}
-        {%- if site.data.venues[entry.abbr] -%}
+      {%- if publication_abbr -%}
+        {%- if site.data.venues[publication_abbr] -%}
           {% assign venue_style = null %}
-          {% if site.data.venues[entry.abbr].color != blank %}
-            {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' %}
+          {% if site.data.venues[publication_abbr].color != blank %}
+            {% assign venue_style = site.data.venues[publication_abbr].color | prepend: 'style="background-color:' | append: '"' %}
           {%- endif -%}
           <abbr
-            class="badge rounded w-100"
+            class="badge rounded w-100{% if publication_abbr == 'arXiv' %} publication-venue--arxiv{% endif %}"
             {% if venue_style %}
               {{ venue_style }}
             {% endif -%}
           >
-            {% if site.data.venues[entry.abbr].url %}
-              <a href="{{ site.data.venues[entry.abbr].url }}">{{ entry.abbr }}</a>
+            {% if site.data.venues[publication_abbr].url %}
+              <a href="{{ site.data.venues[publication_abbr].url }}">{{ publication_abbr }}</a>
             {% else %}
-              <div>{{- entry.abbr -}}</div>
+              <div>{{- publication_abbr -}}</div>
             {% endif %}
           </abbr>
         {% else %}
-          <abbr class="badge rounded w-100">{{ entry.abbr }}</abbr>
+          <abbr class="badge rounded w-100{% if publication_abbr == 'arXiv' %} publication-venue--arxiv{% endif %}">{{ publication_abbr }}</abbr>
         {% endif %}
+      {% endif %}
+      {% if entry.topics != blank %}
+        <div class="publication-topics">
+          {% include publication_topics.liquid topics=entry.topics %}
+        </div>
       {% endif %}
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
@@ -46,9 +55,15 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{ entry.key }}" class="publication-content {% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    <div class="title">
+      {% if entry.arxiv %}
+        <a href="https://arxiv.org/abs/{{ entry.arxiv }}">{{ entry.title }}</a>
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
@@ -201,7 +216,7 @@
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
       {% if entry.arxiv %}
-        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
+        <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
       {% endif %}
       {% if entry.hal %}
         <a href="https://hal.science/{{ entry.hal }}" class="btn btn-sm z-depth-0" role="button">HAL</a>
@@ -381,7 +396,7 @@
       <div class="bibtex hidden">
         {% highlight bibtex %}
         {{- entry.bibtex | hideCustomBibtex -}}
-        {% endhighlight %}
+      {% endhighlight %}
       </div>
     {% endif %}
 

@@ -1,0 +1,16 @@
+{% assign publication_topics = include.topics | split: ',' %}
+{% assign topic_colors = 'purple,green,amber,blue,slate' | split: ',' %}
+<ul class="publication-topic-list" aria-label="Research topics">
+  {% for topic in publication_topics %}
+    {% assign topic_name = topic | strip %}
+    {% if topic_name != blank %}
+      {% assign topic_color = site.data.publication_topics[topic_name] | default: 'slate' %}
+      {% unless topic_colors contains topic_color %}
+        {% assign topic_color = 'slate' %}
+      {% endunless %}
+      <li>
+        <span class="publication-topic publication-topic--{{ topic_color }}">{{ topic_name | escape }}</span>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

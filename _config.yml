@@ -4,7 +4,7 @@
 
 title: Ruifeng Shang # the website title (if blank, full name will be used instead)
 first_name: Ruifeng
-middle_name: 
+middle_name:
 last_name: Shang
 contact_note: >
   Please feel free to reach out via email for research discussions or collaborations.
@@ -338,6 +338,7 @@ filtered_bibtex_keywords:
     selected,
     slides,
     supp,
+    topics,
     video,
     website,
   ]
