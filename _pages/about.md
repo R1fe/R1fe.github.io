@@ -28,4 +28,11 @@ latest_posts:
 
 I am a master's student in Statistics at the [University of Chicago](https://www.uchicago.edu/). Previously, I completed a dual-degree program in Mathematics and Artificial Intelligence at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), where I ranked first in my major.
 
-My research interests lie at the intersection of statistics and deep learning, with a focus on deep generative models, stochastic systems, causal machine learning, and medical imaging. I am particularly interested in developing generative models grounded in statistical theory.
+My research interests lie at the intersection of statistics and deep learning, with a focus on:
+
+- Deep generative models
+- Stochastic systems
+- Causal machine learning
+- Medical imaging
+
+I am particularly interested in developing generative models grounded in statistical theory.
