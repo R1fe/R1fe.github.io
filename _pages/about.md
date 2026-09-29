@@ -10,7 +10,7 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Ruifeng at Bath.</p>
-    
+
 news: true
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
@@ -30,4 +30,4 @@ I am currently a senior undergraduate student at [Shanghai Jiao Tong University 
 
 My core research and academic interests lie in the interface between statistics and deep learning. Previously, I have worked on medical imaging.
 
-I am passionate about establishing the next generation of generative models built on solid statistical tools. 
+I am passionate about establishing the next generation of generative models built on solid statistical tools.

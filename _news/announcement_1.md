@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Received the MS offer from UChicago Statistics! 
+🎉 Received the MS offer from UChicago Statistics!
