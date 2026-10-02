@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Received an offer from the University of Chicago's M.S. program in Statistics with a 10% scholarship!
+🎉 Received an offer from the University of Chicago's M.S. program in Statistics!
