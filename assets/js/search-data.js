@@ -384,8 +384,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-received-an-offer-from-the-university-of-chicago-s-m-s-program-in-statistics-with-a-10-scholarship",
-          title: '🎉 Received an offer from the University of Chicago’s M.S. program in Statistics...',
+            },},{id: "news-received-an-offer-from-the-university-of-chicago-s-m-s-program-in-statistics",
+          title: '🎉 Received an offer from the University of Chicago’s M.S. program in Statistics!...',
           description: "",
           section: "News",},{id: "news-graduated-from-shanghai-jiao-tong-university-as-an-outstanding-graduate",
           title: '🎓 Graduated from Shanghai Jiao Tong University as an Outstanding Graduate.',
