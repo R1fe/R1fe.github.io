@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2026-2-11 09:17:00+0800
+date: 2026-02-11 09:17:00+0800
 inline: true
 related_posts: false
 ---
 
-🎉 Received the MS offer from UChicago Statistics!
+🎉 Received an offer from the University of Chicago's M.S. program in Statistics with a 10% scholarship!

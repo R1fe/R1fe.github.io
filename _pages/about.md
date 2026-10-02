@@ -26,7 +26,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a master's student in Statistics at the [University of Chicago](https://www.uchicago.edu/). Previously, I completed a dual-degree program in Mathematics and Artificial Intelligence at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), where I ranked first in my major.
+I am a master's student in Statistics at the [University of Chicago](https://www.uchicago.edu/). Previously, I earned a BSc in Mathematics and a BEng in AI from [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), where I ranked first in my major.
 
 My research interests lie at the intersection of statistics and deep learning, with a focus on:
 
