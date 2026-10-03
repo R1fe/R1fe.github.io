@@ -4,37 +4,73 @@
 {% if publication_abbr == blank and entry.arxiv %}
   {% assign publication_abbr = 'arXiv' %}
 {% endif %}
-<div class="row publication-entry">
+{% assign publication_inline_labels = false %}
+{% if page.permalink == '/publications/' %}
+  {% assign publication_inline_labels = true %}
+{% endif %}
+{% assign publication_side_preview = false %}
+{% if site.enable_publication_thumbnails and page.permalink == '/publications/' and entry.preview != blank %}
+  {% assign publication_side_preview = true %}
+{% endif %}
+<div class="row publication-entry{% if publication_side_preview %} publication-entry--with-preview{% endif %}">
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
-      {%- if publication_abbr -%}
-        {%- if site.data.venues[publication_abbr] -%}
-          {% assign venue_style = null %}
-          {% if site.data.venues[publication_abbr].color != blank %}
-            {% assign venue_style = site.data.venues[publication_abbr].color | prepend: 'style="background-color:' | append: '"' %}
-          {%- endif -%}
-          <abbr
-            class="badge rounded w-100{% if publication_abbr == 'arXiv' %} publication-venue--arxiv{% endif %}"
-            {% if venue_style %}
-              {{ venue_style }}
-            {% endif -%}
-          >
-            {% if site.data.venues[publication_abbr].url %}
-              <a href="{{ site.data.venues[publication_abbr].url }}">{{ publication_abbr }}</a>
-            {% else %}
-              <div>{{- publication_abbr -}}</div>
-            {% endif %}
-          </abbr>
+      {% if publication_side_preview %}
+        {% if entry.preview contains '://' %}
+          {% assign publication_preview_path = entry.preview %}
         {% else %}
-          <abbr class="badge rounded w-100{% if publication_abbr == 'arXiv' %} publication-venue--arxiv{% endif %}">{{ publication_abbr }}</abbr>
+          {% assign publication_preview_path = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
         {% endif %}
-      {% endif %}
-      {% if entry.topics != blank %}
-        <div class="publication-topics">
-          {% include publication_topics.liquid topics=entry.topics %}
+        <div class="publication-preview">
+          <a
+            class="publication-preview-link"
+            href="{{ publication_preview_path | escape }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open full-size figure for {{ entry.title | escape }}"
+          >
+            <img
+              class="publication-preview-image"
+              src="{{ publication_preview_path | escape }}"
+              alt="Preview figure for {{ entry.title | escape }}"
+              loading="lazy"
+              decoding="async"
+              width="600"
+              height="400"
+            >
+          </a>
         </div>
       {% endif %}
-      {% if entry.preview %}
+      {% unless publication_inline_labels %}
+        {%- if publication_abbr -%}
+          {%- if site.data.venues[publication_abbr] -%}
+            {% assign venue_style = null %}
+            {% if site.data.venues[publication_abbr].color != blank %}
+              {% assign venue_style = site.data.venues[publication_abbr].color | prepend: 'style="background-color:' | append: '"' %}
+            {%- endif -%}
+            <abbr
+              class="badge rounded w-100{% if publication_abbr == 'arXiv' %} publication-venue--arxiv{% endif %}"
+              {% if venue_style %}
+                {{ venue_style }}
+              {% endif -%}
+            >
+              {% if site.data.venues[publication_abbr].url %}
+                <a href="{{ site.data.venues[publication_abbr].url }}">{{ publication_abbr }}</a>
+              {% else %}
+                <div>{{- publication_abbr -}}</div>
+              {% endif %}
+            </abbr>
+          {% else %}
+            <abbr class="badge rounded w-100{% if publication_abbr == 'arXiv' %} publication-venue--arxiv{% endif %}">{{ publication_abbr }}</abbr>
+          {% endif %}
+        {% endif %}
+        {% if entry.topics != blank %}
+          <div class="publication-topics">
+            {% include publication_topics.liquid topics=entry.topics %}
+          </div>
+        {% endif %}
+      {% endunless %}
+      {% if entry.preview and publication_side_preview == false %}
         {% if entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
         {% else %}
@@ -202,6 +238,14 @@
       {{ entry.note | strip }}
     </div>
 
+    {% if publication_inline_labels %}
+      {% if entry.topics != blank %}
+        <div class="publication-labels">
+          {% include publication_topics.liquid topics=entry.topics %}
+        </div>
+      {% endif %}
+    {% endif %}
+
     <!-- Links/Buttons -->
     <div class="links">
       {% if entry.award %}
@@ -215,7 +259,7 @@
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
       {% endif %}
-      {% if entry.arxiv %}
+      {% if entry.arxiv and publication_inline_labels == false %}
         <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
       {% endif %}
       {% if entry.hal %}
