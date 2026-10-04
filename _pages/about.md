@@ -28,7 +28,7 @@ latest_posts:
 
 I am a master's student in Statistics at the [University of Chicago](https://www.uchicago.edu/). Previously, I earned a B.Sc. in Mathematics and a B.Eng. in Artificial Intelligence from [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/), where I ranked first in my major.
 
-My research interests lie at the intersection of statistics and deep learning, with a focus on:
+My research interests lie at the interface of statistics and deep learning, with a focus on:
 
 - Deep generative models
 - Stochastic systems
